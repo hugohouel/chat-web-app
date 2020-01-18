@@ -1,0 +1,52 @@
+#sidebar {
+    float: left;
+    border-right: 3px solid #898c91;
+    padding-right: 40px;
+    padding-left: 20px;
+}
+
+
+
+#rightside-pannel {
+    position: relative;
+    left: 40px;
+}
+
+input[type=text]:focus {
+    border-color: #ffc107;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 10px #ffc107;
+}
+
+.select-room {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+
+    border-radius: 5px;
+    border-color: grey;
+    border-width: 0.5px;
+    border-style: solid;
+}
+
+.select-room:hover {
+    background-color: yellow;
+  }
+
+#input-area input {
+    width: 78%;
+}
+
+#input-area button {
+    width: 20%;
+}
+
+.msg {
+    padding-left: 40px;
+}
+
+#input-area {
+    position: fixed;
+    width: 40%;
+    bottom: 40px;
+    border: 1px solid #8AC007;
+  } 

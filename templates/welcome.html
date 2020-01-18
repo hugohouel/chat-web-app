@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login Page</title>
+    <!-- link rel="stylesheet" type="text/css" href="style.css"-->
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script>
+        localStorage.setItem('usernames', [])
+        localStorage.setItem('current_user', '')
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            document.querySelector('h1').innerHTML = 'Welcome to our Chat Service!';
+            document.querySelector('#known_users_list').innerHTML = 'Known users :';
+            document.querySelector('#login').innerHTML = 'Login :';
+
+            // Displaying registered users
+            document.querySelector('#users_list').innerHTML = '';
+
+            // Form submiting   
+            document.querySelector('#form_username').onsubmit = () => {
+
+                if (document.querySelector('#username').value.length > 0) {
+                    username = document.querySelector('#username').value;
+
+                    // New user
+                    if (!localStorage.getItem('usernames').includes(username)) {
+                        updated_list = localStorage.getItem('usernames').append(username);
+                        localStorage.setItem('usernames', updated_list);
+
+                        const item = document.createElement('li');
+                        item.innerHTML = document.querySelector('#task').value;
+
+                        document.querySelector('#tasks').append(item);
+                    }
+
+                    localStorage.setItem('current_user', username);
+
+                }
+                else {
+                    alert('Please enter a non empty username!');
+                }
+            };
+        });        
+    </script>
+</head>
+
+<body>
+    <h1></h1>
+
+    <div>{{ message }}</div>
+
+    <h2 id='known_users_list'></h2>
+    {% for user in users %}
+        {{ user }}
+        <br/>
+    {% endfor %}
+    <ul id=users_list></ul>
+
+    <h2 id='login'></h2>
+    <form action="{{ url_for('login') }}" method="post">
+        <input type='text' name="username" placeholder="Enter your username" autocomplete="off" autofocus>
+        <button>Submit</button>
+    </form>
+
+    <div>
+        <br />
+        <img src='static/web.jfif' height='400'>
+    </div>
+</body>
+
+</html>

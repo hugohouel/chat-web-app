@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/hugo_style.css') }}">
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script src="static/index.js"></script>
+
+    <!-- Make the username serverside variable available in the JS client script -->
+    <script>
+        const username = `{{ username }}`;
+    </script>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+    <title>Chatroom</title>
+</head>
+
+<body>
+    <div>
+        <p>Connected as : {{ username }}</p>
+    </div>
+    <!-- Nav bar start -->
+    <nav></nav>
+    <!-- Nav bar end -->
+
+    <!-- Main section start -->
+    <div id='main-section'>
+
+        <!-- Sidebar start -->
+        <nav id='sidebar'>
+            <h4>Existing rooms</h4>
+            <div id='list-of-rooms'></div>
+
+            <div id='create-new-room-form'>
+                <input id='new-room-name' type='text' placeholder='New Room' autocomplete="off">
+                <button id='submit-new-room' type='button'>CREATE ROOM</button>
+            </div>
+
+            <div id='delete-room'>
+                <input id='to-be-deleted-room-name' type='text' placeholder='Room To Delete' autocomplete="off">
+                <button id='submit-room-deletion' type='button'>DELETE ROOM</button>
+            </div>
+
+        </nav>
+        <!-- Sidebar end -->
+
+        <!-- Rightside pannel start -->
+        <div id='rightside-pannel'>
+
+            <h4 id='room-name'></h4>
+
+            <!-- Display message start -->
+            <div id='display-message-section'></div>
+
+            <!-- Type message start -->
+            <div id='input-area'>
+                <input id='user_message' type='text' placeholder='Type your message here' autocomplete="off">
+                <button id='send_message' type='button'>SEND</button>
+            </div>
+
+        </div>
+        <!-- Rightside pannel start -->
+
+    </div>
+    <!-- Main section end -->
+
+</body>
+
+ </html>
