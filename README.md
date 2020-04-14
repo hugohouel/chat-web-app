@@ -1,3 +1,9 @@
-# Project 2
+# Chat Application
 
-Web Programming with Python and JavaScript
+## Overview
+
+This is a chat application, allowing users to join the chat, create rooms and discuss!
+
+## Run
+
+To launch the app, just run ```python application.py```
